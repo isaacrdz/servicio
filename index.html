@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.1/angular.min.js"></script>
+  
 </head>
 
 <div>
@@ -13,42 +13,35 @@
 </div>
 
 <div>
-<body>
-<section id="mainTable">
-  <h3>Servicio de tu auto</h3>           
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre del cliente</th>
-        <th>Vehículo</th>
-        <th>Estatus</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Sorento</td>
-        <td>Entrada</td>
-        <td><a href="">Save</a> | <a href="">Delete</a></td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Rio</td>
-        <td>Salida</td>
-        <td><a href="">Save</a> | <a href="">Delete</a></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Kia Optima</td>
-        <td>Salida</td>
-        <td><a href="">Save</a> | <a href="">Delete</a></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+<body ng-app="serviceApp">
+    <section id="mainTable">
+
+      <h3>Servicio de tu auto</h3> 
+
+
+      <div ng-controller="mainCtrl" class="list">
+        <div ng-repeat ="customer in customers">
+          <input ng-model="customer.completed" type="checkbox">
+          <label ng-hide="editing" class="editing-label">{{customer.name}}</label>
+          <input ng-show="editing" ng-model="customer.name" type="text" class="editing-label">
+          <label ng-hide="editing" class="editing-label">{{customer.email}}</label>
+          <input ng-show="editing" ng-model="customer.email" type="text" class="editing-label">
+          <label ng-hide="editing" class="editing-label">{{customer.status}}</label>
+          <input ng-show="editing" ng-model="customer.status" type="text" class="editing-label">
+          <div class="actions">
+            <a href="" ng-click="editing = !editing">Edit</a>
+            <a href="" ng-click="holla()">Save</a>
+            <a href="">Delete</a>
+          </div>
+        </div>
+      
+      </div> 
+</section> 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
 </body>
 </div>
 

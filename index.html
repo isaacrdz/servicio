@@ -14,30 +14,41 @@
 
 <div>
 <body ng-app="serviceApp">
-    <section id="mainTable">
+<div ng-controller="mainCtrl" class="list">
 
-      <h3>Servicio de tu auto</h3> 
+    <div class="" ng-repeat="customer in customers">
+        <table class="table">
 
-
-      <div ng-controller="mainCtrl" class="list">
-        <div ng-repeat ="customer in customers">
-          <input ng-model="customer.completed" type="checkbox">
-          <label ng-hide="editing" class="editing-label">{{customer.name}}</label>
-          <input ng-show="editing" ng-model="customer.name" type="text" class="editing-label">
-          <label ng-hide="editing" class="editing-label">{{customer.email}}</label>
-          <input ng-show="editing" ng-model="customer.email" type="text" class="editing-label">
-          <label ng-hide="editing" class="editing-label">{{customer.status}}</label>
-          <input ng-show="editing" ng-model="customer.status" type="text" class="editing-label">
-          <div class="actions">
-            <a href="" ng-click="editing = !editing">Edit</a>
-            <a href="" ng-click="holla()">Save</a>
-            <a href="">Delete</a>
-          </div>
-        </div>
-      
-      </div> 
-</section> 
-
+            <tbody class="">
+                <tr>
+                    <td>
+                        <label ng-hide="editing" class="editing-label">{{customer.name}}</label>
+                        <input ng-blur="editing = false;" ng-show="editing" ng-model="customer.name" type="text" class="editing-label">
+                    </td>
+                    <td>
+                        <label ng-hide="editing" class="editing-label">{{customer.email}}</label>
+                        <input ng-change="customer.edited" ng-show="editing" ng-model="customer.email" type="text" class="editing-label">
+                    </td>
+                    <td>
+                        <label ng-hide="editing" class="editing-label">{{customer.type}}</label>
+                        <input ng-show="editing" ng-model="customer.type" type="text" class="editing-label">
+                    </td>
+                    <td>
+                        <label ng-hide="editing" class="editing-label">{{customer.status}}</label>
+                        <input ng-show="editing" ng-model="customer.status" type="text" class="editing-label">
+                    </td>
+                    <td>
+                        <div class="actions">
+                        <a href="" ng-click="editing = !editing">Edit</a>
+                        <a href="" ng-click="helloConsole()">Save</a>
+                        <a href="">Delete</a>
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="scripts/app.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

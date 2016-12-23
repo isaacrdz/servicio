@@ -2,8 +2,14 @@ angular.module("serviceApp",[])
 .controller('mainCtrl', function($scope, dataService){
 
 
-	$scope.learningNgChange = function(){
-		console.log("An input is changed");
+	$scope.addCustomer = function(){
+		var customer = {
+			name:"Isaac Alejandro Rodriguez Morales",
+			email: "zack_cpp@hotmail.com",
+			type: "Afinacion",
+			status: "Pendiente"
+		};
+		$scope.customers.push(customer);
 	};
 	
 	$scope.helloConsole = dataService.helloConsole;

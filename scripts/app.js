@@ -12,6 +12,15 @@ angular.module("serviceApp",[])
 			console.log(response.data);
 			$scope.customers = response.data;
 		});
+
+	$scope.deleteCustomer = function(customer,$index){
+		dataService.deleteCustomer(customer);
+		$scope.customers.splice($index,1);
+	};
+
+	$scope.saveCustomer = function(customer){
+		dataService.saveCustomer(customer);
+	}
 	
 })
 .service('dataService', function($http){
@@ -22,5 +31,14 @@ angular.module("serviceApp",[])
 	this.getCustomers = function(callback) {
 		$http.get('mock/customers.json')
 		.then(callback)
-	} 
+	};
+
+	this.deleteCustomer = function(customer) {
+		console.log("The customer has been deleted");
+		//other logic 
+	}; 
+
+	this.saveCustomer = function(customer){
+		console.log("The customer has been saved");
+	};
 });

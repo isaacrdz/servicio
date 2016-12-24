@@ -14,47 +14,12 @@
 
 <div>
 <body ng-app="serviceApp">
-<div ng-controller="mainCtrl" class="list">
-    <div class="add">
-        <a href="" ng-click="addCustomer()">+ Agregar un cliente nuevo</a>
-    </div>
-    <div class="" ng-repeat="customer in customers">
-        <table class="table">
-
-            <tbody class="">
-                <tr>
-                    <td>
-                        <label ng-hide="editing" class="editing-label">{{customer.name}}</label>
-                        <input ng-blur="editing = false;" ng-show="editing" ng-model="customer.name" type="text" class="editing-label">
-                    </td>
-                    <td>
-                        <label ng-hide="editing" class="editing-label">{{customer.email}}</label>
-                        <input ng-change="customer.edited" ng-show="editing" ng-model="customer.email" type="text" class="editing-label">
-                    </td>
-                    <td>
-                        <label ng-hide="editing" class="editing-label">{{customer.type}}</label>
-                        <input ng-show="editing" ng-model="customer.type" type="text" class="editing-label">
-                    </td>
-                    <td>
-                        <label ng-hide="editing" class="editing-label">{{customer.status}}</label>
-                        <input ng-show="editing" ng-model="customer.status" type="text" class="editing-label">
-                    </td>
-                    <td>
-                        <div class="actions">
-                        <a href="" ng-click="editing = !editing">Edit</a>
-                        <a href="" ng-click="saveCustomer(customer)">Save</a>
-                        <a ng-click="deleteCustomer(customer, $index)" href="">Delete</a>
-                    </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<customers></customers>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/services/data.js"></script>
+  <script src="scripts/directives/customers.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 
